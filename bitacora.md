@@ -18,3 +18,18 @@
 
 - **Tipos de dato:** `fecha` está como texto y `ciudad` tiene un problema de mayúsculas. Ambos conviene limpiarlos antes de analizar.
 - **Campo calculado sugerido:** `total` = `cantidad` × `precio`, para facilitar el análisis de ventas. (Dependiento si el valor precio hace referencia a precio unitario o precio total).
+
+# tablero para la reunion
+
+## indicadores:
+ ### Cuanto se vendio en total.
+ Se recorre la variable precio y se suma cada fila para encontrar el precio total.
+
+ ### Cuantas unidades salieron
+ Se planea hacer un arreglo con los productos y y apartir de cantidad, determinar cuanto salio de cada producto.
+
+ ### Cual fue la venta mas grande
+ Se puede hacer recorrer la variable precio y cuando ya haya hechos las iteraciones necesarias retornar la fila completa.
+
+ ### ticket promedio
+ Suma de todos los precios / la cantidad de clientes.
