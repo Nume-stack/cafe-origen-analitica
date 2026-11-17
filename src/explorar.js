@@ -15,3 +15,4 @@ console.log(ventaM);
 console.log("El ticket promedio es de : " + Math.trunc(funciones.ticketPromedio(ventas)));
 let ciudad = "cali".toLowerCase().trim();
 console.log("La ciudad de " + ciudad + " vendio un total de : $" + funciones.ventasPorCiudad(ventas, ciudad));
+console.log(funciones.totalPorCiudad(ventas));

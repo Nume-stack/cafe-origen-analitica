@@ -19,3 +19,6 @@ console.log("Verificando unidades vendidad : " + funciones.Validar(unidadesVendi
 const ventasPorciudadC = funciones.ventasPorCiudad(ventas,"Cali");
 const ventasPorCiudadM = funciones.ventasPorCiudadM(ventas,"Cali");
 console.log("Verificando las ventas por ciudad : " + funciones.Validar(ventasPorciudadC,ventasPorCiudadM));
+
+const mejoresProductos = funciones.topProductosPorValor(ventas,3);
+console.log(mejoresProductos);

@@ -57,7 +57,7 @@ function ventasPorCiudad(ventas,ciudad){
 function totalVendidoM(ventas){
     const totalVen = ventas.reduce((acomulador, venta) => {
         return acomulador + valorVenta(venta);
-     },0);
+    },0);
     
     return totalVen;
 }
@@ -78,13 +78,34 @@ function ventasPorCiudadM(ventas,ciudad){
 }
 
 function totalPorCiudad (ventas){
+    let totalCiudades = {};
     for (const venta of ventas){
-        const ventasXCiudad = ventas.filter(v => v.ciudad.toLowerCase().trim() === venta.ciudad.toLowerCase().trim())
-        .map(v => ({
-            ciudad : 
-        }))
+        const ciudad = venta.ciudad.trim().toLowerCase();
+        const total = valorVenta(venta);
+
+        if (totalCiudades[ciudad]){
+            totalCiudades[ciudad] += total;
+        }else{
+            totalCiudades[ciudad] = total;
+        }
     }
+    return totalCiudades;
 }
+
+function topProductosPorValor(ventas, k){
+    let mejoresProductos = {};
+
+    mejoresProductos =  ventas.reduce((acc, venta) => {
+        const producto = venta.producto;
+        const valorTotal = valorVenta(venta);
+        acc[producto] = (acc[producto] || 0)+ valorTotal;
+        return acc
+    }, {});
+
+    return mejoresProductos;
+}
+
+
 
 function Validar (a,b){
     if(a === b){
@@ -102,5 +123,7 @@ module.exports = {
     totalVendidoM,
     Validar,
     unidadesVendidasM,
-    ventasPorCiudadM
+    ventasPorCiudadM,
+    totalPorCiudad,
+    topProductosPorValor
 }; 
