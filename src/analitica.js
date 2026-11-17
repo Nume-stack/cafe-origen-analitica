@@ -54,4 +54,53 @@ function ventasPorCiudad(ventas,ciudad){
     return totalvendido;
 }
 
-module.exports = {totalVendido, UnidadesVendidad, ventaMayor, ticketPromedio, ventasPorCiudad}; 
+function totalVendidoM(ventas){
+    const totalVen = ventas.reduce((acomulador, venta) => {
+        return acomulador + valorVenta(venta);
+     },0);
+    
+    return totalVen;
+}
+
+function unidadesVendidasM(ventas){
+    const unidadesVendidas = ventas.reduce((acomulador,venta) =>{
+        return acomulador + venta.cantidad;
+    } ,0)
+    return unidadesVendidas;
+}
+
+function ventasPorCiudadM(ventas,ciudad){
+    const vendidoPorCiudad = ventas.filter(v => v.ciudad.toLowerCase().trim() === ciudad)
+    .reduce((total,venta) => {
+        return total + valorVenta(venta);
+    },0);
+    return vendidoPorCiudad;
+}
+
+function totalPorCiudad (ventas){
+    for (const venta of ventas){
+        const ventasXCiudad = ventas.filter(v => v.ciudad.toLowerCase().trim() === venta.ciudad.toLowerCase().trim())
+        .map(v => ({
+            ciudad : 
+        }))
+    }
+}
+
+function Validar (a,b){
+    if(a === b){
+        return "OK";
+    }
+    return "DIFERENTE";
+}
+
+module.exports = {
+    totalVendido,
+    UnidadesVendidad,
+    ventaMayor, 
+    ticketPromedio, 
+    ventasPorCiudad,
+    totalVendidoM,
+    Validar,
+    unidadesVendidasM,
+    ventasPorCiudadM
+}; 
