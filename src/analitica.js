@@ -92,6 +92,24 @@ function totalPorCiudad (ventas){
     return totalCiudades;
 }
 
+function totalPorCiudadTabla (ventas){
+    let totalCiudades = {};
+    for (const venta of ventas){
+        const ciudad = venta.ciudad.trim().toLowerCase();
+        const total = valorVenta(venta);
+
+        if (totalCiudades[ciudad]){
+            totalCiudades[ciudad] += total;
+        }else{
+            totalCiudades[ciudad] = total;
+        }
+    }   
+    return Object.entries(totalCiudades).map(([ciudad,total])=>({
+        ciudad,
+        total
+    }))
+}
+
 function topProductosPorValor(ventas, k){
     let mejoresProductos = {};
 
@@ -102,9 +120,8 @@ function topProductosPorValor(ventas, k){
         return acc
     }, {});
 
-    return mejoresProductos;
+    return Object.fromEntries(Object.entries(mejoresProductos).sort((a,b) => b[1]-a[1]).slice(0,k))
 }
-
 
 
 function Validar (a,b){
@@ -125,5 +142,6 @@ module.exports = {
     unidadesVendidasM,
     ventasPorCiudadM,
     totalPorCiudad,
-    topProductosPorValor
+    topProductosPorValor,
+    totalPorCiudadTabla
 }; 

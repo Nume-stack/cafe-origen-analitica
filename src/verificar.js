@@ -20,5 +20,10 @@ const ventasPorciudadC = funciones.ventasPorCiudad(ventas,"Cali");
 const ventasPorCiudadM = funciones.ventasPorCiudadM(ventas,"Cali");
 console.log("Verificando las ventas por ciudad : " + funciones.Validar(ventasPorciudadC,ventasPorCiudadM));
 
-const mejoresProductos = funciones.topProductosPorValor(ventas,3);
+console.log("Tabla de ciudades")
+console.log(funciones.totalPorCiudad(ventas));
+console.table(funciones.totalPorCiudadTabla(ventas));
+
+// Ventas por producto
+const mejoresProductos = funciones.topProductosPorValor(ventas,3)
 console.log(mejoresProductos);
