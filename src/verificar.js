@@ -27,3 +27,9 @@ console.table(funciones.totalPorCiudadTabla(ventas));
 // Ventas por producto
 const mejoresProductos = funciones.topProductosPorValor(ventas,3)
 console.log(mejoresProductos);
+
+//Unidades por producto 
+console.log("Unidades por producto")
+const unidadesProducto = funciones.unidadesPorProducto(ventas);
+console.log(unidadesProducto);
+

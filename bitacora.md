@@ -33,3 +33,11 @@
 
  ### ticket promedio
  Suma de todos los precios / la cantidad de clientes.
+
+ =================================
+ dia 1: ver lo que hay que copiar en la bitacora
+
+
+# cuanto cuesta cada reporte
+## Prediccion
+Mi prediccion viendo las funciones instrumentadas, es que venta mayor va aumentar el doble de las veces del contador puesto que ahi tanto recorremos el arreglo como comparamos, es decir, recorremos y comparamos al mismo tiempo, mientras que en las otras 2 funciones solo recorremos el arreglo.
