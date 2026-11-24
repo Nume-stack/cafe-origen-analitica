@@ -2,9 +2,9 @@ const funciones  = require("./analitica");
 
 function totalVendidoI(ventas,c){
     let total = 0;
-    for (const v of ventas){
+    for (const venta of ventas){
         c.ops++;
-        total += funciones.valorVenta(v);
+        total += funciones.valorVenta(venta);
     }
     return total;
 }
@@ -33,13 +33,19 @@ function totalPorCiudadI (ventas,c){
         return "Envio de datos incorrecto. Vuelta a intentarlo";
     }
     return ventas.reduce((acc,venta) => {
-        c.op++;
-        acc[venta.ciudad.trim().toLowerCase()] = (acc[venta.ciudad.trim().toLowerCase()] || 0) + valorVenta(venta);
+        c.ops++;
+        acc[venta.ciudad.trim().toLowerCase()] = (acc[venta.ciudad.trim().toLowerCase()] || 0) + funciones.valorVenta(venta);
         return acc;
     },{});
 }
 
+function primeraVentaI(ventas, c) {
+    c.ops++;
+    return ventas[0];
+}
+
 module.exports = {totalPorCiudadI,
     ventaMayorI,
-    totalVendidoI
+    totalVendidoI,
+    primeraVentaI
 };
