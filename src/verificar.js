@@ -33,3 +33,10 @@ console.log("Unidades por producto")
 const unidadesProducto = funciones.unidadesPorProducto(ventas);
 console.log(unidadesProducto);
 
+//producto estrella
+const {medellin,bogota,cali,pereira} = funciones.productoEstrellaPorCiudad(ventas);
+console.log(medellin);
+console.log(bogota);
+console.log(cali);
+console.log(pereira);
+

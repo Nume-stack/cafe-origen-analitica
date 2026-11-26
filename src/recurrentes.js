@@ -15,9 +15,9 @@ function clientesRecurrentes(ventas) {
         }
     }
 
-    return recurrentes;
+    return [...recurrentes].sort((a,b) => b - a);
 }
-
+/*
 const cantidades = [1000, 2000, 4000, 8000, 16000, 100000, 1000000];
 
 for (const n of cantidades) {
@@ -29,3 +29,5 @@ for (const n of cantidades) {
 
     console.timeEnd("Tiempo para " + n + " ventas: ");
 }
+    */
+module.exports={clientesRecurrentes}

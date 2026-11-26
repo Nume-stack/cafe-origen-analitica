@@ -183,6 +183,67 @@ function Validar (a,b){
     return "DIFERENTE";
 }
 
+function productoMasVendido(map) {
+    let mayor = 0;
+    let productoEstrella = '';
+
+    for (const [producto, cantidad] of map) {
+        if (cantidad > mayor) {
+            mayor = cantidad;
+            productoEstrella = producto;
+        }
+    }
+
+    return {
+        producto: productoEstrella,
+        ventas: mayor
+    };
+}
+
+function productoEstrellaPorCiudad(ventas){
+    const medellin = new Map();
+    const bogota = new Map();
+    const cali = new Map();
+    const pereira = new Map();
+    for (const registro of ventas){
+        if(registro.ciudad.trim().toLowerCase() === 'medellín'){
+            medellin.set(registro.producto,(medellin.get(registro.producto) || 0) + 1);
+        }
+        if(registro.ciudad.trim().toLowerCase() === 'bogotá'){
+            bogota.set(registro.producto,(bogota.get(registro.producto) || 0) + 1);
+        }
+        if(registro.ciudad.trim().toLowerCase() === 'cali'){
+            cali.set(registro.producto,(cali.get(registro.producto) || 0) + 1);
+        }
+        if(registro.ciudad.trim().toLowerCase() === 'pereira'){
+            pereira.set(registro.producto,(pereira.get(registro.producto) || 0) + 1);
+        }
+    }
+    return {
+        medellin: productoMasVendido(medellin),
+        bogota: productoMasVendido(bogota),
+        cali: productoMasVendido(cali),
+        pereira: productoMasVendido(pereira)
+    };
+}
+
+function primerClienteUnico(ventas) {
+    const clientes = new Map();
+    for (const venta of ventas) {
+        clientes.set(
+            venta.cliente,
+            (clientes.get(venta.cliente) || 0) + 1
+        );
+    }
+
+    for (const venta of ventas) {
+        if (clientes.get(venta.cliente) === 1) {
+            return venta.cliente;
+        }
+    }
+
+    return null;
+}
 
 module.exports = {
     totalVendido,
@@ -199,5 +260,7 @@ module.exports = {
     totalPorCiudadTabla,
     unidadesPorProducto,
     ventasDelDia,
-    valorVenta
+    valorVenta,
+    productoEstrellaPorCiudad,
+    primerClienteUnico
 }; 
