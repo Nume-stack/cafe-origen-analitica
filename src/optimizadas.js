@@ -23,7 +23,12 @@ function comprasPorCliente(ventas){
     return [...compras].sort((a,b) => b[1] - a[1]);
 }
 
-// Datos del dia 1
+module.exports = {
+    clientesRecurrentesSet,
+    comprasPorCliente
+}
+
+/* // Datos del dia 1
 console.log("Primeros 12 datos");
 console.log("Recurrente Set con 12 ventas");
 console.log(clientesRecurrentesSet(ventas));
@@ -65,5 +70,5 @@ for (const cantidad of cantidades){
     console.timeEnd(`tiempo par ${cantidad} ventas: `);
 
 }
-
+ */
 

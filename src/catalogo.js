@@ -36,8 +36,10 @@ function comboRegaloMap(catalogo,valor){
     return null;
 }
 
+module.exports = {comboRegaloMap};
+
 // prueba con 87.000
-console.log(comboRegalo(productos,87000));
+/* console.log(comboRegalo(productos,87000));
 console.log(comboRegaloMap(productos,87000));
 console.log("");
 
@@ -49,4 +51,4 @@ console.log("");
 // prueba con null
 console.log(comboRegalo(productos,90000));
 console.log(comboRegaloMap(productos,90000));
-console.log("");
+console.log(""); */
